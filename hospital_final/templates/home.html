@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Hospital - Quality Healthcare Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1551190822-a9333d879b1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+        }
+        .facility-card {
+            transition: transform 0.3s;
+        }
+        .facility-card:hover {
+            transform: translateY(-10px);
+        }
+        .stats-counter {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-hospital"></i> City Hospital
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#facilities">Facilities</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-light ms-2 text-primary" href="/login/">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold">Welcome to City Hospital</h1>
+            <p class="lead">Providing exceptional healthcare services with compassion and excellence</p>
+            <a href="/login/" class="btn btn-primary btn-lg me-3">Book Appointment</a>
+            <a href="#contact" class="btn btn-outline-light btn-lg">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <div class="stats-counter">500+</div>
+                    <p>Happy Patients</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="stats-counter">50+</div>
+                    <p>Expert Doctors</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="stats-counter">100+</div>
+                    <p>Beds Available</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="stats-counter">24/7</div>
+                    <p>Emergency Care</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Facilities</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card facility-card h-100">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Emergency Care">
+                        <div class="card-body">
+                            <h5 class="card-title">Emergency Care</h5>
+                            <p class="card-text">24/7 emergency services with state-of-the-art equipment and experienced medical staff.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card facility-card h-100">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Surgery">
+                        <div class="card-body">
+                            <h5 class="card-title">Advanced Surgery</h5>
+                            <p class="card-text">Modern operating rooms equipped with latest technology for various surgical procedures.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card facility-card h-100">
+                        <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Laboratory">
+                        <div class="card-body">
+                            <h5 class="card-title">Diagnostic Lab</h5>
+                            <p class="card-text">Comprehensive laboratory services with accurate and quick test results.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card facility-card h-100">
+                        <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Maternity">
+                        <div class="card-body">
+                            <h5 class="card-title">Maternity Ward</h5>
+                            <p class="card-text">Specialized care for expectant mothers with comfortable and safe delivery facilities.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card facility-card h-100">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="ICU">
+                        <div class="card-body">
+                            <h5 class="card-title">Intensive Care Unit</h5>
+                            <p class="card-text">Advanced ICU with round-the-clock monitoring and critical care specialists.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card facility-card h-100">
+                        <img src="https://images.unsplash.com/photo-1576671081837-49000212a370?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="Pharmacy">
+                        <div class="card-body">
+                            <h5 class="card-title">In-house Pharmacy</h5>
+                            <p class="card-text">Convenient pharmacy services with genuine medicines and expert consultation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>About City Hospital</h2>
+                    <p>City Hospital has been serving the community for over 25 years, providing comprehensive healthcare services with a commitment to excellence. Our team of dedicated professionals works tirelessly to ensure the best possible care for our patients.</p>
+                    <p>We combine cutting-edge medical technology with compassionate care to deliver outstanding health outcomes.</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="img-fluid rounded" alt="Hospital Building">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Contact Us</h2>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-map-marker-alt fa-3x text-primary mb-3"></i>
+                    <h5>Address</h5>
+                    <p>123 Healthcare Avenue<br>Medical District<br>City, State 12345</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-phone fa-3x text-primary mb-3"></i>
+                    <h5>Phone</h5>
+                    <p>+1 (555) 123-4567<br>+1 (555) 987-6543</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-envelope fa-3x text-primary mb-3"></i>
+                    <h5>Email</h5>
+                    <p>info@cityhospital.com<br>appointments@cityhospital.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2025 City Hospital. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-white"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

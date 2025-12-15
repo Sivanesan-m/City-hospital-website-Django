@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - City Hospital</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .dashboard-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 0;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        .stat-icon {
+            font-size: 2.5rem;
+            opacity: 0.8;
+        }
+        .recent-activity {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .activity-item {
+            padding: 10px;
+            border-left: 4px solid #007bff;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-hospital"></i> City Hospital - Admin
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="/dashboard/">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/admin/">Admin Panel</a></li>
+                    <li class="nav-item">
+                        <form method="post" action="{% url 'logout' %}" class="d-inline">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-outline-light btn-sm">
+                                <i class="fas fa-sign-out-alt me-1"></i>Logout
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Header -->
+    <section class="dashboard-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1><i class="fas fa-tachometer-alt me-3"></i>Administrator Dashboard</h1>
+                    <p class="mb-0">Welcome back! Here's what's happening at City Hospital today.</p>
+                </div>
+                <div class="col-md-4 text-end">
+                    <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" class="img-fluid rounded" alt="Hospital" style="max-height: 150px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Cards -->
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-3 mb-3">
+                <div class="card stat-card text-white bg-primary">
+                    <div class="card-body text-center">
+                        <i class="fas fa-user-md stat-icon"></i>
+                        <h3 class="card-title">25</h3>
+                        <p class="card-text">Total Doctors</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card stat-card text-white bg-success">
+                    <div class="card-body text-center">
+                        <i class="fas fa-users stat-icon"></i>
+                        <h3 class="card-title">150</h3>
+                        <p class="card-text">Total Patients</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card stat-card text-white bg-warning">
+                    <div class="card-body text-center">
+                        <i class="fas fa-calendar-check stat-icon"></i>
+                        <h3 class="card-title">45</h3>
+                        <p class="card-text">Today's Appointments</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card stat-card text-white bg-info">
+                    <div class="card-body text-center">
+                        <i class="fas fa-bed stat-icon"></i>
+                        <h3 class="card-title">85</h3>
+                        <p class="card-text">Available Beds</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="row">
+            <!-- Recent Appointments -->
+            <div class="col-md-8 mb-4">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="fas fa-clock me-2"></i>Recent Appointments</h5>
+                    </div>
+                    <div class="card-body recent-activity">
+                        <div class="activity-item">
+                            <strong>Dr. Smith</strong> - Cardiology appointment with <strong>John Doe</strong>
+                            <small class="text-muted d-block">Today, 10:00 AM - Room 201</small>
+                        </div>
+                        <div class="activity-item">
+                            <strong>Dr. Johnson</strong> - General checkup with <strong>Jane Smith</strong>
+                            <small class="text-muted d-block">Today, 11:30 AM - Room 105</small>
+                        </div>
+                        <div class="activity-item">
+                            <strong>Dr. Williams</strong> - Orthopedic consultation with <strong>Mike Brown</strong>
+                            <small class="text-muted d-block">Today, 2:00 PM - Room 302</small>
+                        </div>
+                        <div class="activity-item">
+                            <strong>Dr. Davis</strong> - Pediatrics appointment with <strong>Sarah Wilson</strong>
+                            <small class="text-muted d-block">Tomorrow, 9:00 AM - Room 401</small>
+                        </div>
+                        <div class="activity-item">
+                            <strong>Dr. Miller</strong> - Dermatology with <strong>Tom Anderson</strong>
+                            <small class="text-muted d-block">Tomorrow, 10:30 AM - Room 203</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions & Hospital Status -->
+            <div class="col-md-4 mb-4">
+                <div class="card mb-3">
+                    <div class="card-header bg-success text-white">
+                        <h6 class="mb-0"><i class="fas fa-tasks me-2"></i>Quick Actions</h6>
+                    </div>
+                    <div class="card-body">
+                        <a href="/admin/" class="btn btn-outline-primary btn-sm w-100 mb-2">
+                            <i class="fas fa-cog me-1"></i>Manage System
+                        </a>
+                        <a href="/admin/hospital/doctor/" class="btn btn-outline-success btn-sm w-100 mb-2">
+                            <i class="fas fa-user-md me-1"></i>Add Doctor
+                        </a>
+                        <a href="/admin/hospital/patient/" class="btn btn-outline-info btn-sm w-100 mb-2">
+                            <i class="fas fa-user-plus me-1"></i>Add Patient
+                        </a>
+                        <a href="/admin/hospital/appointment/" class="btn btn-outline-warning btn-sm w-100">
+                            <i class="fas fa-calendar-plus me-1"></i>Schedule Appointment
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        <h6 class="mb-0"><i class="fas fa-hospital me-2"></i>Hospital Status</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Emergency Room:</span>
+                            <span class="badge bg-success">Normal</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Operating Rooms:</span>
+                            <span class="badge bg-warning">2 in use</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>ICU Beds:</span>
+                            <span class="badge bg-primary">15 available</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Laboratory:</span>
+                            <span class="badge bg-success">Open</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Facilities Overview -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="fas fa-building me-2"></i>Hospital Facilities</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-2 text-center mb-3">
+                                <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" class="img-fluid rounded mb-2" alt="Emergency">
+                                <h6>Emergency</h6>
+                                <small class="text-muted">24/7 Care</small>
+                            </div>
+                            <div class="col-md-2 text-center mb-3">
+                                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" class="img-fluid rounded mb-2" alt="Surgery">
+                                <h6>Surgery</h6>
+                                <small class="text-muted">Modern ORs</small>
+                            </div>
+                            <div class="col-md-2 text-center mb-3">
+                                <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" class="img-fluid rounded mb-2" alt="Lab">
+                                <h6>Laboratory</h6>
+                                <small class="text-muted">Advanced Testing</small>
+                            </div>
+                            <div class="col-md-2 text-center mb-3">
+                                <img src="https://images.unsplash.com/photo-1576671081837-49000212a933?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" class="img-fluid rounded mb-2" alt="Pharmacy">
+                                <h6>Pharmacy</h6>
+                                <small class="text-muted">In-house</small>
+                            </div>
+                            <div class="col-md-2 text-center mb-3">
+                                <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" class="img-fluid rounded mb-2" alt="Maternity">
+                                <h6>Maternity</h6>
+                                <small class="text-muted">Family Care</small>
+                            </div>
+                            <div class="col-md-2 text-center mb-3">
+                                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" class="img-fluid rounded mb-2" alt="ICU">
+                                <h6>ICU</h6>
+                                <small class="text-muted">Critical Care</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

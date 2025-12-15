@@ -1,0 +1,6 @@
+<form method="post">{% csrf_token %}
+<p>Appointment: {{ appointment.patient }} - {{ appointment.doctor }}</p>
+<textarea name="medicines" placeholder="Medicines"></textarea>
+<textarea name="instructions" placeholder="Instructions"></textarea>
+<button>Add Prescription</button>
+</form>
